@@ -1,0 +1,27 @@
+<div>
+  請開 console 的 network 查看結果
+  <p>顯示列表：
+    <mat-slide-toggle #toggle [checked]="show$ | async" (change)="show$.next(toggle.checked)"
+      [matTooltip]="(show$ | async) ? '開啟' : '關閉'" color="warn">
+    </mat-slide-toggle>
+  </p>
+  <p>
+    <button mat-raised-button color="primary" (click)="refresh()">刷新</button>
+  </p>
+</div>
+
+
+<div *ngIf="show$ | async">
+  <div *ngFor="let item of queryList$ | async">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">{{ item.title }}</h3>
+      </div>
+      <div class="card-body">
+        <p>id: {{ item.id }}</p>
+        <p>userId: {{ item.userId }}</p>
+        <p>completed: {{ item.completed }}</p>
+      </div>
+    </div>
+  </div>
+</div>
