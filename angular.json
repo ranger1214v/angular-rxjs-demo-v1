@@ -109,5 +109,8 @@
       }
     }
   },
-  "defaultProject": "angular-rxjs-demo-v1"
+  "defaultProject": "angular-rxjs-demo-v1",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
