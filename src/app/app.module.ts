@@ -10,6 +10,7 @@ import { CacheApiComponent } from './pages/cache-api/cache-api.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchKeywordComponent } from './pages/search-keyword/search-keyword.component';
 import { ScrollComponent } from './pages/scroll/scroll.component';
+import { ThrottleComponent } from './pages/throttle/throttle.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ScrollComponent } from './pages/scroll/scroll.component';
     CacheApiComponent,
     SearchKeywordComponent,
     ScrollComponent,
+    ThrottleComponent,
   ],
   imports: [
     BrowserModule,
