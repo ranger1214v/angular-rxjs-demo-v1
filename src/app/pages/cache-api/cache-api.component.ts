@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, shareReplay, switchMap } from 'rxjs';
+import { BehaviorSubject, retry, shareReplay, switchMap } from 'rxjs';
 
 interface APIData {
   completed: boolean;
@@ -21,12 +21,13 @@ export class CacheApiComponent implements OnInit {
   public refresh$ = new BehaviorSubject(null);
   public queryList$ = this.refresh$.pipe(
     switchMap(() => this.http.get<APIData[]>('https://jsonplaceholder.typicode.com/todos/')),
-    shareReplay(1)
+    retry(3),
+    shareReplay(1),
   );
 
   constructor(public http: HttpClient) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   refresh() {
     this.refresh$.next(null);
